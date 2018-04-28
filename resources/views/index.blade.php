@@ -5,85 +5,42 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery-1.12.4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-<style>
-    .box1 {
-        grid-column-start: 1;
-        grid-column-end: 4;
-        grid-row-start: 1;
-        grid-row-end: 3;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    * {box-sizing: border-box;}
-    .wrapper {
-        border-radius: 5px;
-        background-color: #fff4e6;
-    }
-    .box {
-        border-radius: 5px;
-        padding: 1em;
-    }
 
-    select{
-        width: 80%;
-        height: 300px;
-    }
-    table{
-        border-collapse: collapse;
-        background-color:  white;
-        border: 1px solid black;
-        width: 100%;
-    }
-    tr{
-        border-collapse: collapse;
-        background-color:  white;
-        border: 1px solid black;
-    }
-    td{
-        text-align: center;
-        border-collapse: collapse;
-        background-color:  white;
-        border: 1px solid black;
-    }
-    th{
-        background-color: #ffccad;
-        border-collapse: collapse;
-        border: 1px solid black;
-    }
-</style>
 <form id="data-form">
 
-
-
-    <div class="wrapper">
-        <div class="box box1">
-            <div class="nested">Образование:</div>
-            <div class="nested">
-                <select name="qualification[]" multiple="multiple">
+    <div class="container">
+        <div class="row m-4">
+            <div class="col">Образование:</div>
+            <div class="col">
+                <select name="qualification[]" class="form-control" multiple="multiple" style="height: 300px;">
                     @foreach($qualifications as $qualification)
                         <option value="{{$qualification->id}}">{{$qualification->name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <div class="box box1">
-            <div class="nested">Города:</div>
-            <div class="nested">
-                <select name="cities[]" multiple="multiple">
+        <div class="row m-4">
+            <div class="col">Города:</div>
+            <div class="col">
+            <select name="cities[]" class="form-control" multiple="multiple" style="height: 300px;">
                     @foreach($cities as $city)
                         <option value="{{$city->id}}">{{$city->name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-        <div class="box box1">
-            <div class="nested">Пользователи:</div>
+        <div class="row m-4">
+            <div class="col">Пользователи:</div>
+            <div class="col"></div>
         </div>
-        <div class="box box4" id="table">
+        <div id="table">
             @include("users.table")
         </div>
     </div>

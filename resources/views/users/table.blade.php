@@ -1,5 +1,5 @@
-<table>
-    <thead><tr><th>ФИО</th><th>Образование</th><th>Города</th></tr></thead>
+<table class="table table-bordered">
+    <thead><tr><th style="width: 25%">ФИО</th><th style="width: 20%">Образование</th><th>Города</th></tr></thead>
     <tbody>
         @foreach($users as $name => $user)
         <tr>
